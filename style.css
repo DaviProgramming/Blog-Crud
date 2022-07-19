@@ -167,14 +167,14 @@ nav button{
 
 .nav__profile ul li a{
     padding: 1rem;
-    background: var(--color-gray-900);
+    background: var(--color-primary-light);
     display: block;
     width: 100%;
 }
 
 .nav__profile ul li:last-child a{
-    background: var(--color-red);
-    color: var(--color-bg);
+    background: var(--color-gray-900);
+    color: var(--color-white);
 }
 
 .category__button{
@@ -256,7 +256,7 @@ nav button{
 footer{
     background: var(--color-gray-900);
     padding: 5rem 0 0;
-    box-shadow: inset 0 1.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
 
 .footer__socials{
@@ -307,4 +307,10 @@ footer ul a{
 footer ul li a:hover{
     letter-spacing: 0.2rem;
     opacity: 1;
+}
+
+.footer__copyright{
+    text-align: center;
+    padding: 1.5rem ;
+    border-top: 2px solid var(--color-bg);
 }
