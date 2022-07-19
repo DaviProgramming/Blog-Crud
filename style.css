@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 :root{
-    --color-primary: #EB0701;
-    --color-primary-light: #9E0500;
+    --color-primary: #f80901;
+    --color-primary-light: #960301;
     --color-primary-variant: #FF2119;
     --color-red: #da0f3f;
     --color-red-light: hsl(346, 87%, 46%, 15%);
     --color-green: #00c476;
     --color-green-light: hsl(156, 100%, 38%, 15%);
-    --color-gray-900: #1e1e66;
+    --color-gray-900: #970d0d;
     --color-gray-700: #2d2b7c;
     --color-gray-300: rgba(242, 242, 254, 0.3);
     --color-gray-200: rgba(242, 242, 254, 0.7);
@@ -44,7 +44,7 @@
 body{
     font-family: var(--font-primary);
     line-height: 1.6;
-    color: var(--color-gray-900);
+    color: var(--color-white);
     overflow-x: hidden;
     background: var(--color-bg);
     font-size: 0.9rem;
@@ -179,7 +179,7 @@ nav button{
 
 .category__button{
     background-color: var(--color-primary-light);
-    color: var(--color-primary);
+    color: var(--color-white);
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: var(--card-border-radius-1);
@@ -230,4 +230,25 @@ nav button{
 
 .featured .post__thumbnail{
     height: fit-content;
+}
+
+.posts__container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+
+.category__buttons{
+    padding: 4rem 0;
+    border-top: 2px solid var(--color-gray-900);
+    border-bottom: 2px solid var(--color-gray-900);
+}
+
+.category__buttons-container{
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
