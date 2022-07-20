@@ -460,4 +460,10 @@ footer ul li a:hover{
     .category__buttons-container{
         grid-template-columns: 1fr 1fr;
     }
+
+    .footer__container{
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
 }
