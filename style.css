@@ -362,6 +362,27 @@ footer ul li a:hover{
     transition: var(--transition);
 }
 
+
+.singlepost{
+    margin: 6rem 0 2rem;
+}
+
+.singlepost__container{
+    width: var(--form-width);
+    background: #1f1f1f;
+    padding: 1rem 2rem 2rem;
+    border-radius: var(--card-border-radius-2);
+}
+
+.singlepost__thumbnail{
+margin: 1.5rem 0 1rem;
+}
+
+.singlepost__container p{
+    margin-top: 1rem;
+    line-height: 1.7;
+}
+
 @media screen and (max-width:1024px) {
     .container{
         width: var(--container-width-md);
@@ -483,6 +504,12 @@ footer ul li a:hover{
     .search__bar-container{
         width: var(--container-width-md);
     }
+
+    .singlepost__container{
+        
+        background: transparent;
+       
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -516,5 +543,11 @@ footer ul li a:hover{
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+    }
+
+    .singlepost__container{
+        
+        background: transparent;
+       
     }
 }
