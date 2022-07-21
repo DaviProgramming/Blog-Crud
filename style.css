@@ -105,7 +105,7 @@ nav{
     position: fixed;
     top: 0%;
     z-index: 10;
-    box-shadow: 0 0.11rem 0.1rem rgba(0, 0, 0.2);
+    box-shadow: 0 -3rem 5rem rgba(0, 0, 0.2);
 }
 
 nav button{
@@ -381,6 +381,22 @@ margin: 1.5rem 0 1rem;
 .singlepost__container p{
     margin-top: 1rem;
     line-height: 1.7;
+}
+
+.category__title{
+    height: 15rem;
+    margin-top: 4.5rem;
+    background: var(--color-gray-900);
+    display: grid;
+    place-items: center;
+    
+}
+
+.empty__page{
+    height: 70vh;
+    text-align: center;
+    display: grid;
+    place-content: center;
 }
 
 @media screen and (max-width:1024px) {
