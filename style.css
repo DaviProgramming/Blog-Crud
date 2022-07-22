@@ -2,7 +2,7 @@
 
 :root{
     --color-primary: #f80901;
-    --color-primary-light: #960301;
+    --color-primary-light: #ff2b28;
     --color-primary-variant: #FF2119;
     --color-red: #da0f3f;
     --color-red-light: hsl(346, 87%, 46%, 15%);
@@ -460,9 +460,99 @@ input::placeholder, textarea::placeholder{
 }
 
 .btn{
-    background: var(--color-red);
+    background: var(--color-white);
+    color: black;
+}
+
+.btn.sm{
+padding: 0.3rem 0.7rem;
+font-size: 0.8rem;
+}
+
+.btn.delete{
+    background: var(--color-primary);
     color: white;
 }
+
+.dashboard{
+    margin-top: 6rem;
+}
+
+.sidebar__toggle{
+    display: none;
+}
+
+.dashboard__container{
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: var(--color-bg);
+    border-radius: var(--card-border-radius-3);
+    padding: 2rem;
+    margin-bottom:5rem ;
+    border-radius: var(--card-border-radius-2);
+    box-shadow: 0rem 0 1rem var(--color-primary);
+}
+
+.dashboard aside ul li:not(:last-child) a{
+    border-bottom: 1px solid var(--color-primary-light);
+}
+
+.dashboard aside a{
+    background-color: var(--color-gray-900);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+    
+}
+
+.dashboard aside a:hover{
+    background: var(--color-primary-light);
+}
+
+.dashboard aside a.active{
+    background: var(--color-bg);
+    box-shadow: 0rem 0rem 2rem 0.02rem var(--color-gray-900);
+}
+
+.dashboard main{
+    margin-left: 1.5rem;
+}
+
+.dashboard main h2{
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}
+
+.dashboard main table{
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table th{
+    background: var(--color-gray-900);
+    padding: 0.8rem;
+    color: var(--color-white);
+    box-shadow: 0rem 0rem 0.2rem var(--color-gray-900);
+}
+
+.dashboard main table td{
+    padding: 0.8rem;
+    border-bottom: px solid var(--color-bg);
+}
+    
+
+.dashboard main table tr:hover td{
+    background-color: var(--color-gray-900);
+    box-shadow: 0 0 0.070rem var(--color-white);
+    
+}
+
+
+
+
+
 
 @media screen and (max-width:1024px) {
     .container{
@@ -595,6 +685,48 @@ input::placeholder, textarea::placeholder{
     .search__bar-container{
         width: 60%;
     }
+
+    .dashboard__container{
+        grid-template-columns: 4.5rem auto;
+        padding: 0;
+        background: transparent;
+    }
+
+    .dashboard main table td{
+        padding: 0.8rem;
+        border-bottom: 1px solid var(--color-bg);
+    }
+    
+
+    .dashboard main table thead{
+        display: none;
+    }
+
+    .dashboard aside h5{
+        display: none;
+    }
+
+    .dashboard main table tr{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard main table td{
+        padding: 0.8rem;
+        
+    }
+
+    .dashboard main table tr:nth-last-child(even){
+        background-color: var(--color-gray-900);
+    }
+
+    .dasbhboard main table tr:hover td{
+        background: transparent;
+    }
+
+    .btn.delete{
+        background-color: var(--color-primary-light);
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -634,5 +766,57 @@ input::placeholder, textarea::placeholder{
         
         background: transparent;
        
+    }
+
+    .dashboard{
+        margin-top: 5rem;
+    }
+
+    .dashboard__container{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .dashboard main{
+        margin: 0;
+    }
+
+    .dashboard main h2{
+        margin-top: 1rem;
+        display: grid;
+        place-items: center;
+    }
+
+    .dashboard aside{
+        position: fixed;
+        box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.2);
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        transition: var(--transition);
+        background: var(--color-primary);
+    }
+
+    .dashboard .sidebar__toggle{
+        display:inline-block;
+        background: var(--color-primary-variant);
+        color: var(--color-white);
+        position: fixed;
+        z-index: 1;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50% 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.4);
+
+    }
+
+    .dashboard aside a h5{
+        display: inline-block;
+    }
+
+    #hide__sidebar-btn{
+        display: none;
     }
 }
