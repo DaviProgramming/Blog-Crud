@@ -193,10 +193,11 @@ nav button{
 }
 
 .post__thumbnail{
-    border-radius: var(--card-border-radius-5) 0;
-    border: 0.3rem solid var(--color-gray-900);
+    border-radius: var(--card-border-radius-1) ;
+    border: 0.2rem solid var(--color-gray-900);
     overflow: hidden;
     margin-bottom: 1.6rem;
+    box-shadow: 0 0 1rem var(--color-gray-900);
 }
 
 .post:hover .post__thumbnail img{
