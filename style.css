@@ -399,6 +399,71 @@ margin: 1.5rem 0 1rem;
     place-content: center;
 }
 
+.form__section{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.form__section-container{
+    width: var(--form-width);
+}
+
+.alert__message{
+    
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-3);
+    
+}
+
+.alert__message.error{
+    background: red;
+}
+
+.alert__message.sucess{
+    background: var(--color-green);
+}
+
+.form__sing{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.form__control{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+input, textarea, select{
+    padding: 0.8rem 1.4rem;
+    background: var(--color-primary-variant);
+    color: var(--color-white);
+    resize: none;
+    border-radius: var(--card-border-radius-1);
+}
+
+input::placeholder, textarea::placeholder{
+    color: white;
+}
+
+.form__section small{
+    margin-top: 1rem;
+    display: block;
+}
+
+.form__section small a{
+    color: var(--color-primary);
+}
+
+.btn{
+    background: var(--color-red);
+    color: white;
+}
+
 @media screen and (max-width:1024px) {
     .container{
         width: var(--container-width-md);
@@ -525,6 +590,10 @@ margin: 1.5rem 0 1rem;
         
         background: transparent;
        
+    }
+
+    .search__bar-container{
+        width: 60%;
     }
 }
 
