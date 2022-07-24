@@ -207,6 +207,9 @@ if(isset($_GET['id'])){
 </html>
 
 <?php } else{
+
+header("Location: manage-users.php");
+exit;
    
 }
 
