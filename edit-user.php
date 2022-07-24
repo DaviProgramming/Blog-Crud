@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+
+<?php 
+require('connect.php');
+
+if(isset($_GET['id'])){
+
+
+?>
+
 <html lang="en">
 
 <head>
@@ -13,46 +22,85 @@
 </head>
 
 <body>
+<?php
+   require_once('navbar.php');
 
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li><a href="signin.html">Sign in</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+   ?>
+
+    <?php 
+
+                    if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $sql = "SELECT * FROM `users` WHERE `id` = '$id'";
+
+                    $result = $conn ->query($sql);
+                    $row = $result->fetch_assoc();
+
+
+
+?>
 
     <section class="form__section">
         <div class="container form__section-container">
             <h2>Edit User</h2>
+                        
 
-            <div class="alert__message sucess">
-                <p>This is an error message</p>
-            </div>
+            <?php
+                if (isset($_SESSION['Fname_erro']) || isset($_SESSION['Lname_erro']) || isset($_SESSION['Uname_erro']) || isset($_SESSION['Password_erro']) || isset($_SESSION['Confirm_CPassword_erro'])) {
 
-            <form action="" class="form__sing" enctype="multipart/form-data">
-                <input type="text" name="" id="" placeholder="First Name">
-                <input type="text" name="" id="" placeholder="Last Name">
-                <input type="text" name="" id="" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="Password">
-                <select>
+                ?>
+                    <div class="alert__message error">
+                        <p>
+                            Não enviado
+                        </p>
+                    </div>
+                <?php
+
+                } else if (isset($_SESSION['Confirm_Send'])) {
+
+                ?>
+
+                    <div class="alert__message sucess">
+                        <p>
+                            Enviado com sucesso
+                        </p>
+                    </div>
+                <?php
+                unset($_SESSION['Confirm_Send']);
+                }
+                ?>
+                
+                
+                
+                
+                <form action="sendform.php" class="form__sing" enctype="multipart/form-data" method="POST">
+                
+                <input type="hidden" name="id" value="<?php echo $id?>">
+
+                <h5><?php if (!empty($_SESSION['Fname_erro'])) {
+                        echo $_SESSION['Fname_erro'];
+                        unset($_SESSION['Fname_erro']);
+                    } ?></h5>
+                
+                <input type="text" name="EditFirstName" id="" placeholder="First_Name" value="<?php echo $row['first_name'];?>">
+                <h5><?php if (!empty($_SESSION['Lname_erro'])) {
+                        echo $_SESSION['Lname_erro'];
+                        unset($_SESSION['Lname_erro']);
+                    } ?></h5>
+                <input type="text" name="EditLastName" id="" placeholder="LastName" value="<?php echo $row['last_name'];?>">
+                <h5><?php if (!empty($_SESSION['Uname_erro'])) {
+                        echo $_SESSION['Uname_erro'];
+                        unset($_SESSION['Uname_erro']);
+                    } ?></h5>
+                <input type="text" name="EditUserName" id="" placeholder="Username" value="<?php echo $row['username']?>">
+                
+                <input type="email" name="EditEmail" placeholder="Email" value="<?php echo $row['email'] ?>">
+                <h5><?php if (!empty($_SESSION['Password_erro'])) {
+                        echo $_SESSION['Password_erro'];
+                        unset($_SESSION['Password_erro']);
+                    } ?></h5>
+                <input type="text" name="EditPassword" placeholder="Password" value="<?php echo $row['password'] ?>">
+                <select name="EditAuthor">
                     <option value="0">Author</option>
                     <option value="1">Admin</option>
                 </select>
@@ -61,12 +109,23 @@
                     <input type="file" id="avatar">
                 </div>
 
-                <button class="btn">Edit User</button>
+                <button class="btn" name="btn_EditUser" value="Edit">Edit User</button>
 
             </form>
         </div>
 
     </section>
+
+    <?php 
+                    }
+
+                    else{
+
+                        header("Location: manage-users.php");
+                        exit;
+
+                    }
+    ?>
 
     <section class="category__buttons">
         <div class="container category__buttons-container">
@@ -146,3 +205,9 @@
 </body>
 
 </html>
+
+<?php } else{
+   
+}
+
+?>

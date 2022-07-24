@@ -96,7 +96,7 @@ $result = $conn->query($sql);
                             <td><?php echo $row['first_name'];  ?></td>
                             <td><a href="edit-user.php?id=<?php echo $row['id'];?>" class="btn sm">Edit</a></td>
                             <td><a href="delete-user.php?id=<?php echo $row['id'];?>" class="btn sm delete">Delete</a></td>
-                            <td>No</td>
+                            <td><?php echo $row['author'] ?></td>
                         </tr>
 
                         <?php 

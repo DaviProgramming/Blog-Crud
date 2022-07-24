@@ -132,6 +132,10 @@ require_once('connect.php');
                     <label for="avatar" class="avatar"></label>
                     <input type="file" id="avatar">
                 </div>
+                <select name="Choice">
+                    <option value="0">Author</option>
+                    <option value="1">Admin</option>
+                </select>
                 <button type="submit" class="btn" name="btn_signUp" value="envio">Sign Up</button>
                 <small>Already Have an account? <a href="signin.html">Sign in</a></small>
 
