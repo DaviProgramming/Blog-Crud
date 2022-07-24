@@ -19,6 +19,35 @@ require_once('connect.php');
 
 <body>
 
+    <nav>
+        <div class="container nav__container">
+            <a href="index.php" class="nav__logo">ValoCRUD</a>
+            <ul class="nav__items">
+                
+                <?php if (
+                    $_SESSION['connect'] == 0
+                ) { ?>
+                    <li><a href="signin.html">Sign in</a></li>
+                <?php } else {
+                ?>
+                    <li class="nav__profile">
+                        <div class="avatar">
+                            <img src="./images/avatar1.jpg" alt="">
+                        </div>
+                        <ul>
+                            <li><a href="dashboard.html">Dashboard</a></li>
+                            <li><a href="logout.html">Logout</a></li>
+                        </ul>
+                    </li>
+                <?php
+                }
+                ?>
+            </ul>
+            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
+            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+
 
     <section class="form__section">
         <div class="container form__section-container">
@@ -35,6 +64,17 @@ require_once('connect.php');
                     </div>
                 <?php
 
+                } else if (isset($_SESSION['Confirm_Send'])) {
+
+                ?>
+
+                    <div class="alert__message sucess">
+                        <p>
+                            Enviado com sucesso
+                        </p>
+                    </div>
+                <?php
+                unset($_SESSION['Confirm_Send']);
                 }
                 ?>
                 <h5><?php if (!empty($_SESSION['Fname_erro'])) {
@@ -67,7 +107,7 @@ require_once('connect.php');
                                                                                         ?>">
 
 
-                <input type="text" placeholder="Email" name="singup_Email">
+                <input type="text" placeholder="Email" name="singup_Email" required>
 
                 <h5><?php if (!empty($_SESSION['Password_erro'])) {
                         echo $_SESSION['Password_erro'];
@@ -84,10 +124,10 @@ require_once('connect.php');
                         unset($_SESSION['Confirm_CPassword_erro']);
                     } ?></h5>
                 <input type="text" placeholder="Confirm Passowrd" name="singup_ConfirmPassowrd" value="<?php if (isset($_SESSION['SignUpConfirmPassword'])) {
-                                                                                                    echo $_SESSION['SignUpConfirmPassword'];
-                                                                                                    unset($_SESSION['SignUpConfirmPassword']);
-                                                                                                }
-                                                                                                ?>">
+                                                                                                            echo $_SESSION['SignUpConfirmPassword'];
+                                                                                                            unset($_SESSION['SignUpConfirmPassword']);
+                                                                                                        }
+                                                                                                        ?>">
                 <div class="form__control">
                     <label for="avatar" class="avatar"></label>
                     <input type="file" id="avatar">

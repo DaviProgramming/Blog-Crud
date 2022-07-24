@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Users - ValoCRUD</title>
+    <title>Dashboard - ValoCRUD</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
@@ -14,29 +20,7 @@
 
 <body>
 
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li><a href="signin.html">Sign in</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+    <?php require_once('navbar.php'); ?>
 
     <section class="dashboard">
         <div class="container dashboard__container">
@@ -51,20 +35,20 @@
                     </li>
 
                     <li>
-                        <a href="dashboard.html"><i class="uil uil-edit"></i>
+                        <a href="dashboard.html" class="active"><i class="uil uil-edit"></i>
                             <h5>Manage Posts</h5>
                         </a>
                     </li>
 
                     <li>
-                        <a href="add-user.html"><i class="uil uil-user-plus"></i>
+                        <a href="signup.php"><i class="uil uil-user-plus"></i>
                             <h5>Add User</h5>
                         </a>
 
                     </li>
 
                     <li>
-                        <a href="manage-users.html" class="active"><i class="uil uil-users-alt"></i>
+                        <a href="manage-users.php"><i class="uil uil-users-alt"></i>
                             <h5>Manage User</h5>
                         </a>
 
@@ -77,7 +61,7 @@
                     </li>
 
                     <li>
-                        <a href="manage-categorys.html" class=""><i class="uil uil-list-ui-alt"></i>
+                        <a href="manage-categorys.html" ><i class="uil uil-list-ui-alt"></i>
                             <h5>Manage Categories</h5>
                         </a>
                     </li>
@@ -85,48 +69,48 @@
                 </ul>
             </aside>
             <main>
-                <h2>Manage Users</h2>
+                <h2>Dashboard</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Title</th>
+                            <th>Category</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                            <th>Admin</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                               Carlão
+                                Travel
                             </td>
+                            <td>Art</td>
                             <td><a href="edit-category.html" class="btn sm">Edit</a></td>
                             <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
-                            <td>No</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Sergão
-                            </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
-                            <td>No</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Cição
-                            </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
-                            <td>No</td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
+                            <td>Art</td>
                             <td><a href="edit-category.html" class="btn sm">Edit</a></td>
                             <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
-                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Travel
+                            </td>
+                            <td>Art</td>
+                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Travel
+                            </td>
+                            <td>Art</td>
+                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
                         </tr>
 
 
