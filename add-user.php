@@ -4,13 +4,13 @@ require_once('connect.php');
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up - ValoCRUD</title>
+    <title>Add User - ValoCRUD</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
@@ -132,8 +132,11 @@ require_once('connect.php');
                     <label for="avatar" class="avatar"></label>
                     <input type="file" id="avatar">
                 </div>
-                <input type="hidden" value="0" name="Choice">
-                <button type="submit" class="btn" name="btn_signUp" value="envio">Sign Up</button>
+                <select name="choice" id="choice">
+                    <option value="0">Author</option>
+                    <option value="1">Admin</option>
+                </select>
+                <button type="submit" class="btn" name="btn_Add-user" value="envio">Sign Up</button>
                 <small>Already Have an account? <a href="signin.html">Sign in</a></small>
 
 

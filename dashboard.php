@@ -41,7 +41,7 @@ session_start();
                     </li>
 
                     <li>
-                        <a href="signup.php"><i class="uil uil-user-plus"></i>
+                        <a href="add-user.php"><i class="uil uil-user-plus"></i>
                             <h5>Add User</h5>
                         </a>
 

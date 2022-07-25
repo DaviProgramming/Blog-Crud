@@ -46,7 +46,7 @@ $result = $conn->query($sql);
                     </li>
 
                     <li>
-                        <a href="signup.php"><i class="uil uil-user-plus"></i>
+                        <a href="add-user.php"><i class="uil uil-user-plus"></i>
                             <h5>Add User</h5>
                         </a>
 
@@ -96,14 +96,7 @@ $result = $conn->query($sql);
                             <td><?php echo $row['first_name'];  ?></td>
                             <td><a href="edit-user.php?id=<?php echo $row['id'];?>" class="btn sm">Edit</a></td>
                             <td><a href="delete-user.php?id=<?php echo $row['id'];?>" class="btn sm delete">Delete</a></td>
-                            <td><?php 
-                                if($row['author'] == 0){
-                                    echo "Author";
-                                }
-                                else if($row['author' == 1]){
-                                    echo "Admin";
-                                }
-                             ?></td>
+                            <td><?php  echo $row['author'];?></td>
                         </tr>
 
                         <?php 
