@@ -5,8 +5,8 @@ require_once('connect.php');
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -25,13 +25,13 @@ require_once('connect.php');
         <div class="container nav__container">
             <a href="index.php" class="nav__logo">ValoCRUD</a>
             <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="contact.php">Contato</a></li>
                 <?php  if($_SESSION['connect'] == 0
                 ){?>
-                <li><a href="signin.html">Sign in</a></li>
+                <li><a href="signin.php">Sign in</a></li>
                 <?php } 
                 
                 else{
@@ -41,8 +41,8 @@ require_once('connect.php');
                         <img src="./images/avatar1.jpg" alt="">
                     </div>
                     <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
+                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </li>
                 <?php  
@@ -60,8 +60,8 @@ require_once('connect.php');
                 <img src="./images/blog1.jpg" alt="">
             </div>
             <div class="post__info">
-                <a href="category-posts.html" class="category__button">Wild Life</a>
-                <h2 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <a href="category-posts.php" class="category__button">Wild Life</a>
+                <h2 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Deserunt fugiat error excepturi asperiores recusandae quidem harum repudiandae. Voluptatum sequi
                         eum, unde porro autem corporis, pariatur voluptate perferendis vel quaerat iusto.</a></h2>
                 <p class="post__body">
@@ -90,9 +90,9 @@ require_once('connect.php');
                     <img src="./images/blog2.jpg" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
                     <h3 class="post__tile">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
+                        <a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
                             deleniti sed aliquam a mollitia libero veniam repellat ab nulla? Quis reiciendis ab
                             excepturi dolor at temporibus! Minus, deserunt amet.</a>
                     </h3>
@@ -121,9 +121,9 @@ require_once('connect.php');
                     <img src="./images/blog7.jpg" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
                     <h3 class="post__tile">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
+                        <a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
                             deleniti sed aliquam a mollitia libero veniam repellat ab nulla? Quis reiciendis ab
                             excepturi dolor at temporibus! Minus, deserunt amet.</a>
                     </h3>
@@ -152,9 +152,9 @@ require_once('connect.php');
                     <img src="./images/blog12.jpg" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
                     <h3 class="post__tile">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
+                        <a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
                             deleniti sed aliquam a mollitia libero veniam repellat ab nulla? Quis reiciendis ab
                             excepturi dolor at temporibus! Minus, deserunt amet.</a>
                     </h3>
@@ -183,9 +183,9 @@ require_once('connect.php');
                     <img src="./images/blog5.jpg" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
                     <h3 class="post__tile">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
+                        <a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam
                             deleniti sed aliquam a mollitia libero veniam repellat ab nulla? Quis reiciendis ab
                             excepturi dolor at temporibus! Minus, deserunt amet.</a>
                     </h3>
@@ -289,4 +289,4 @@ require_once('connect.php');
 <script src="./main.js"></script>
 </body>
 
-</html>
+</php>

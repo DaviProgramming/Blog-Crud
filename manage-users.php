@@ -9,8 +9,8 @@ $result = $conn->query($sql);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@ $result = $conn->query($sql);
             <aside>
                 <ul>
                     <li>
-                        <a href="add-post.html"><i class="uil uil-postcard"></i>
+                        <a href="add-post.php"><i class="uil uil-postcard"></i>
                             <h5>Add Post</h5>
                         </a>
                     </li>
@@ -53,20 +53,20 @@ $result = $conn->query($sql);
                     </li>
 
                     <li>
-                        <a href="manage-users.html" class="active"><i class="uil uil-users-alt"></i>
+                        <a href="manage-users.php" class="active"><i class="uil uil-users-alt"></i>
                             <h5>Manage User</h5>
                         </a>
 
                     </li>
 
                     <li>
-                        <a href="add-category.html"><i class="uil uil-list-ul"></i>
+                        <a href="add-category.php"><i class="uil uil-list-ul"></i>
                             <h5>Add Category</h5>
                         </a>
                     </li>
 
                     <li>
-                        <a href="manage-categorys.html" class=""><i class="uil uil-list-ui-alt"></i>
+                        <a href="manage-categorys.php" class=""><i class="uil uil-list-ui-alt"></i>
                             <h5>Manage Categories</h5>
                         </a>
                     </li>
@@ -179,4 +179,4 @@ $result = $conn->query($sql);
 
 </body>
 
-</html>
+</php>

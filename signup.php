@@ -3,8 +3,8 @@
 require_once('connect.php');
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@ require_once('connect.php');
                 <?php if (
                     $_SESSION['connect'] == 0
                 ) { ?>
-                    <li><a href="signin.html">Sign in</a></li>
+                    <li><a href="signin.php">Sign in</a></li>
                 <?php } else {
                 ?>
                     <li class="nav__profile">
@@ -35,8 +35,8 @@ require_once('connect.php');
                             <img src="./images/avatar1.jpg" alt="">
                         </div>
                         <ul>
-                            <li><a href="dashboard.html">Dashboard</a></li>
-                            <li><a href="logout.html">Logout</a></li>
+                            <li><a href="dashboard.php">Dashboard</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                         </ul>
                     </li>
                 <?php
@@ -134,7 +134,7 @@ require_once('connect.php');
                 </div>
                 <input type="hidden" value="0" name="Choice">
                 <button type="submit" class="btn" name="btn_signUp" value="envio">Sign Up</button>
-                <small>Already Have an account? <a href="signin.html">Sign in</a></small>
+                <small>Already Have an account? <a href="signin.php">Sign in</a></small>
 
 
             </form>
@@ -144,4 +144,4 @@ require_once('connect.php');
 
 </body>
 
-</html>
+</php>

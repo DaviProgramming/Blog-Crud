@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -50,7 +50,7 @@
             }?>
         <textarea name="category_description"  rows="10" placeholder="Description"></textarea>
         <button type="submit" class="btn" name="btn_Add_Category">Add Category</button>
-        <small>Don't Have an account? <a href="signup.html">Sign up</a></small>
+        <small>Don't Have an account? <a href="signup.php">Sign up</a></small>
     </form>
 </div>
 
@@ -133,4 +133,4 @@
 
 </body>
 
-</html>
+</php>

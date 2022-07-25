@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -18,18 +18,18 @@
         <div class="container nav__container">
             <a href="index.php" class="nav__logo">ValoCRUD</a>
             <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li><a href="signin.html">Sign in</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="contact.php">Contato</a></li>
+                <li><a href="signin.php">Sign in</a></li>
                 <li class="nav__profile">
                     <div class="avatar">
                         <img src="./images/avatar1.jpg" alt="">
                     </div>
                     <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
+                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -45,7 +45,7 @@
             <aside>
                 <ul>
                     <li>
-                        <a href="add-post.html"><i class="uil uil-postcard"></i>
+                        <a href="add-post.php"><i class="uil uil-postcard"></i>
                             <h5>Add Post</h5>
                         </a>
                     </li>
@@ -71,13 +71,13 @@
                     </li>
 
                     <li>
-                        <a href="add-category.html"><i class="uil uil-list-ul"></i>
+                        <a href="add-category.php"><i class="uil uil-list-ul"></i>
                             <h5>Add Category</h5>
                         </a>
                     </li>
 
                     <li>
-                        <a href="manage-categorys.html" class="active"><i class="uil uil-list-ui-alt"></i>
+                        <a href="manage-categorys.php" class="active"><i class="uil uil-list-ui-alt"></i>
                             <h5>Manage Categories</h5>
                         </a>
                     </li>
@@ -99,29 +99,29 @@
                             <td>
                                 Travel
                             </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
 
 
@@ -199,4 +199,4 @@
 
 </body>
 
-</html>
+</php>

@@ -4,8 +4,8 @@ session_start();
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -29,13 +29,13 @@ session_start();
             <aside>
                 <ul>
                     <li>
-                        <a href="add-post.html"><i class="uil uil-postcard"></i>
+                        <a href="add-post.php"><i class="uil uil-postcard"></i>
                             <h5>Add Post</h5>
                         </a>
                     </li>
 
                     <li>
-                        <a href="dashboard.html" class="active"><i class="uil uil-edit"></i>
+                        <a href="dashboard.php" class="active"><i class="uil uil-edit"></i>
                             <h5>Manage Posts</h5>
                         </a>
                     </li>
@@ -55,13 +55,13 @@ session_start();
                     </li>
 
                     <li>
-                        <a href="add-category.html"><i class="uil uil-list-ul"></i>
+                        <a href="add-category.php"><i class="uil uil-list-ul"></i>
                             <h5>Add Category</h5>
                         </a>
                     </li>
 
                     <li>
-                        <a href="manage-categorys.html" ><i class="uil uil-list-ui-alt"></i>
+                        <a href="manage-categorys.php" ><i class="uil uil-list-ui-alt"></i>
                             <h5>Manage Categories</h5>
                         </a>
                     </li>
@@ -85,32 +85,32 @@ session_start();
                                 Travel
                             </td>
                             <td>Art</td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
                             <td>Art</td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
                             <td>Art</td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
                         <tr>
                             <td>
                                 Travel
                             </td>
                             <td>Art</td>
-                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.html" class="btn sm delete">Delete</a></td>
+                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
                         </tr>
 
 
@@ -188,4 +188,4 @@ session_start();
 
 </body>
 
-</html>
+</php>

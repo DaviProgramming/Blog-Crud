@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -18,18 +18,18 @@
         <div class="container nav__container">
             <a href="index.php" class="nav__logo">ValoCRUD</a>
             <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li><a href="signin.html">Sign in</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="contact.php">Contato</a></li>
+                <li><a href="signin.php">Sign in</a></li>
                 <li class="nav__profile">
                     <div class="avatar">
                         <img src="./images/avatar1.jpg" alt="">
                     </div>
                     <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
+                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -157,4 +157,4 @@
     <script src="./main.js"></script>
 </body>
 
-</html>
+</php>
