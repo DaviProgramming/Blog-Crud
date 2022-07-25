@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,42 +14,42 @@
 </head>
 <body>
     
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li><a href="signin.html">Sign in</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="logout.html">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+    <?php 
+    require('navbar.php');
+    ?>
 
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Add Category</h2>
-    
-    <div class="alert__message sucess">
-        <p>This is an error message</p>
+    <?php if(isset($_SESSION['Category_erro']) || isset($_SESSION['CategoryDescription_erro'])){ ?>
+    <div class="alert__message error">
+        <p>Não foi possivel enviar o cadastro</p>
     </div>
+    <?php 
+    }
+    ?>
 
-    <form action="" class="form__sing">
-        <input type="text" placeholder="Name of Category" name="category_name" id="">
+<?php if(isset($_SESSION['Confirm_Send'])){ ?>
+    <div class="alert__message sucess">
+        <p>Enviado com sucesso</p>
+    </div>
+    <?php 
+    }
+    unset($_SESSION['Confirm_Send']);
+    ?>
+
+    <form action="sendform.php" class="form__sing" method="POST">
+        <?php if(isset($_SESSION['Category_erro'])){
+            echo $_SESSION['Category_erro'];
+            unset($_SESSION['Category_erro']);
+            }?>
+        <input type="text" placeholder="Name of Category" name="add_category_name" id="">
+        <?php if(isset($_SESSION['CategoryDescription_erro'] )){
+            echo $_SESSION['CategoryDescription_erro'] ;
+            unset($_SESSION['CategoryDescription_erro'] );
+            }?>
         <textarea name="category_description"  rows="10" placeholder="Description"></textarea>
-        <button type="submit" class="btn">Add Category</button>
+        <button type="submit" class="btn" name="btn_Add_Category">Add Category</button>
         <small>Don't Have an account? <a href="signup.html">Sign up</a></small>
     </form>
 </div>

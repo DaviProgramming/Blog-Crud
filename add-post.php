@@ -50,8 +50,8 @@
         
         <select name="" id="">
             <option value="1">Travel</option>
-            <option value="1">qualquer</option>
-            <option value="1">qualquer</option>
+            <option value="1">Art</option>
+            <option value="1">Food</option>
             <option value="1">qualquer</option>
             <option value="1">qualquer</option>
             <option value="1">qualquer</option>
