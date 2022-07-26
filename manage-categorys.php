@@ -1,7 +1,7 @@
 <?php 
 require_once('connect.php');
 
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM category";
 
 $result = $conn->query($sql);
 
@@ -112,7 +112,7 @@ $result = $conn->query($sql);
                         ?>
                         <tr?>
                             <td>
-                                <?php echo $row['category']; ?>
+                                <?php echo $row['name']; ?>
                             </td>
                             <td><a href="edit-category.php?id=<?php echo $row['id'] ?>" class="btn sm">Edit</a></td>
                             <td><a href="delete-category.php?id=<?php echo $row['id']?>" class="btn sm delete">Delete</a></td>

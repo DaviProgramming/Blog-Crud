@@ -3,7 +3,7 @@
 require_once('connect.php');
 
 ?>
-<!DOCTYPE php>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -144,6 +144,10 @@ require_once('connect.php');
         </div>
 
     </section>
+
+    <?php 
+    include('footer.php');
+    ?>
 
 </body>
 

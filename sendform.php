@@ -1,6 +1,11 @@
 <?php
 
 
+
+
+
+
+
 require_once('connect.php');
 
 if (isset($_POST['btn_signUp'])) {
@@ -39,7 +44,7 @@ if (isset($_POST['btn_signUp'])) {
 
     //Validação Segundo nome Formulario 
     if (strlen($SignUpLastName) <= 2 || strstr($SignUpLastName, " ")) {
-        $_SESSION['Lname_erro'] = "*Preencha o nome com no mínimo 2 caracteres e sem espaços em Branco";
+        $_SESSION['Lname_erro'] = "*Preencha o nome com no mínimo 2 caracteres";
 
         header("Location: signup.php");
         exit;
@@ -115,12 +120,13 @@ if (isset($_POST['btn_signUp'])) {
 
 
 //Validação Form edit-users--------------------------------------------
-$id = $_POST['id'];
+
 
 
 
 if (isset($_POST['btn_EditUser'])) {
 
+    $id = $_GET['id'];
     
     $EditFirstName = $_POST['EditFirstName'];
     $EditLastName = $_POST['EditLastName'];
@@ -361,8 +367,8 @@ if(isset($_POST['btn_Add_Category'])){
         $time = date('Y-m-d');
     }
 
-    $sql = "INSERT INTO posts( description_category,category,hora)
-            VALUES ( '$Confirm_Description_Category' , '$Confirm_Cname', '$date')";
+    $sql = "INSERT INTO category(description,name)
+            VALUES ( '$Confirm_Description_Category' , '$Confirm_Cname')";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
@@ -383,6 +389,7 @@ if(isset($_POST['btn_Add_Category'])){
 
 
 if(isset($_POST['btn_update_category'])){
+    $id = $_POST['id_new'];
     $Category_name = $_POST['edit_category_name'];
     $Description_Category = $_POST['edit_category_description'];
 
@@ -394,9 +401,9 @@ if(isset($_POST['btn_update_category'])){
 
     if (strlen($Category_name) <= 2) {
         $_SESSION['Category_erro'] = "*Preencha o nome da Categoria com no mínimo 2 caracteres e sem espaços em Branco";
+       
 
-        header("Location: edit-category.php?id=" . $id);
-        exit;
+        
     } else if (!strlen($Category_name) <= 2) {
         $Confirm_Cname = $Category_name;
     }
@@ -405,20 +412,83 @@ if(isset($_POST['btn_update_category'])){
 
     if (strlen($Description_Category) <= 2) {
         $_SESSION['CategoryDescription_erro'] = "*Preencha a descrição com no mínimo 2 caracteres e sem espaços em Branco";
-
-        header("Location: edit-category.php?id=" . $id);
-        exit;
+        
+       
     } else if (!strlen($Description_Category) <= 2) {
         $Confirm_Description_Category = $Description_Category;
         $time = date('Y-m-d');
     }
 
-    $sql = "UPDATE `posts` SET `description_category` = '$Confirm_Description_Category', `category` = '$Confirm_Cname', `hora` = '$date' ";
+    $sql = "UPDATE `category` SET `description` = '$Confirm_Description_Category', `name` = '$Confirm_Cname' WHERE id = '$id' ";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
         unset( $_SESSION['Category_name'],$_SESSION['Description_Category']);
-        header("Location: edit-category.php?id=" . $id);
+        header("Location: manage-categorys.php");
+        exit;
+        
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(isset($_POST['btn_add_post'])){
+    $title= $_POST['name_post'];
+    $category = $_POST['Choice_category'];
+    $body_text = $_POST['Body_text'];
+    $featured = $_POST['featured'];
+
+    echo $featured;
+    
+    $_SESSION['title'] = $title;
+    $_SESSION['category'] = $category;
+    $_SESSION['Body_Text'] = $body_text;
+    
+
+    
+    if (strlen($title) <= 2) {
+        $_SESSION['title_erro'] = "*Preencha o nome da Categoria com no mínimo 2 caracteres e sem espaços em Branco";
+
+        header("Location: add-post.php");
+        exit;
+    } else if (!strlen($title) <= 2) {
+        $Confirm_title = $title;
+    }
+
+    //Verificação Description
+
+    if (strlen($body_text) <= 2) {
+        $_SESSION['body_text_erro'] = "*Preencha a descrição com no mínimo 2 caracteres e sem espaços em Branco";
+
+        header("Location: add-post.php");
+        exit;
+    } else if (!strlen($body_text) <= 2) {
+        $Confirm_body_text = $body_text;
+        $time = date('Y-m-d');
+    }
+
+    $sql = "INSERT INTO posts(title,category,textbody) VALUES ('$Confirm_title', '$category',  ' $Confirm_body_text')";
+
+    if (mysqli_query($conn, $sql)) {
+        $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
+        unset( $_SESSION['Category_name'],$_SESSION['Description_Category']);
+        header("Location: add-post.php");
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -426,17 +496,15 @@ if(isset($_POST['btn_update_category'])){
 
 }
 
-
-
-
-
-
-
-
-
-else{
-    header("Location: index.php");
-    exit;
-}
-
 ?>
+
+
+
+
+
+
+
+
+
+
+

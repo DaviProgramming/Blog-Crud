@@ -25,7 +25,7 @@ session_start()
 
 
     $id = $_GET['id'];
-    $sql = "SELECT * FROM `posts` WHERE `id` = '$id'";
+    $sql = "SELECT * FROM `category` WHERE `id` = '$id'";
 
     $result = $conn ->query($sql);
     $row = $result->fetch_assoc();
@@ -54,11 +54,12 @@ session_start()
     ?>
 
     <form action="sendform.php" class="form__sing" method="POST">
+    <input type="hidden" value="<?php echo $_GET['id']; ?>" name="id_new">
         <?php if(isset($_SESSION['Category_erro'])){
             echo $_SESSION['Category_erro'];
             unset($_SESSION['Category_erro']);
             }?>
-        <input type="text" placeholder="Name of Category" name="edit_category_name" value="<?php echo $row['category'] ?>">
+        <input type="text" placeholder="Name of Category" name="edit_category_name" value="<?php echo $row['name'] ?>">
         <?php if(isset($_SESSION['CategoryDescription_erro'] )){
             echo $_SESSION['CategoryDescription_erro'] ;
             unset($_SESSION['CategoryDescription_erro'] );
