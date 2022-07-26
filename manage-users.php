@@ -9,8 +9,8 @@ $result = $conn->query($sql);
 
 ?>
 
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -179,4 +179,4 @@ $result = $conn->query($sql);
 
 </body>
 
-</php>
+</html>

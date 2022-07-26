@@ -1,5 +1,16 @@
-<!DOCTYPE php>
-<php lang="en">
+<?php 
+require_once('connect.php');
+
+$sql = "SELECT * FROM posts";
+
+$result = $conn->query($sql);
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -95,34 +106,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    <?php 
+                        if($result->num_rows >0){
+                            while($row = $result->fetch_assoc()){
+                        ?>
+                        <tr?>
                             <td>
-                                Travel
+                                <?php echo $row['category']; ?>
                             </td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
+                            <td><a href="edit-category.php?id=<?php echo $row['id'] ?>" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.php?id=<?php echo $row['id']?>" class="btn sm delete">Delete</a></td>
+                            </tr>
+                        <?php }
+                        } ?>
 
 
                     </tbody>
@@ -199,4 +195,4 @@
 
 </body>
 
-</php>
+</html>

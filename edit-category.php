@@ -1,5 +1,12 @@
-<!DOCTYPE php>
-<php lang="en">
+
+<?php if(isset($_GET['id'])){
+
+session_start()
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,42 +20,51 @@
 </head>
 <body>
     
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="services.php">Services</a></li>
-                <li><a href="contact.php">Contato</a></li>
-                <li><a href="signin.php">Sign in</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="logout.php">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+    <?php require('navbar.php');
+            require('connect.php');
 
-<section class="form__section">
+
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM `posts` WHERE `id` = '$id'";
+
+    $result = $conn ->query($sql);
+    $row = $result->fetch_assoc();
+
+    ?>
+
+    <section class="form__section">
     <div class="container form__section-container">
         <h2>Edit Category</h2>
-    
-    <div class="alert__message sucess">
-        <p>This is an error message</p>
+    <?php if(isset($_SESSION['Category_erro']) || isset($_SESSION['CategoryDescription_erro'])){ ?>
+    <div class="alert__message error">
+        <p>Não foi possivel enviar o cadastro</p>
     </div>
+    <?php 
+    }
+    ?>
 
-    <form action="" class="form__sing">
-        <input type="text" placeholder="Name of Category" name="category_name" id="">
-        <textarea name="category_description"  rows="10" placeholder="Description"></textarea>
-        <button type="submit" class="btn">Update Category</button>
+<?php if(isset($_SESSION['Confirm_Send'])){ ?>
+    <div class="alert__message sucess">
+        <p>Enviado com sucesso</p>
+    </div>
+    <?php 
+    unset($_SESSION['Confirm_Send']);
+    }
+    
+    ?>
+
+    <form action="sendform.php" class="form__sing" method="POST">
+        <?php if(isset($_SESSION['Category_erro'])){
+            echo $_SESSION['Category_erro'];
+            unset($_SESSION['Category_erro']);
+            }?>
+        <input type="text" placeholder="Name of Category" name="edit_category_name" value="<?php echo $row['category'] ?>">
+        <?php if(isset($_SESSION['CategoryDescription_erro'] )){
+            echo $_SESSION['CategoryDescription_erro'] ;
+            unset($_SESSION['CategoryDescription_erro'] );
+            }?>
+        <textarea name="edit_category_description"  rows="10" placeholder="Description"></textarea>
+        <button type="submit" class="btn" name="btn_update_category">Edit Category</button>
         <small>Don't Have an account? <a href="signup.php">Sign up</a></small>
     </form>
 </div>
@@ -132,4 +148,8 @@
 
 </body>
 
-</php>
+</html>
+
+<?php 
+}
+?>

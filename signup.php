@@ -3,8 +3,8 @@
 require_once('connect.php');
 
 ?>
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -144,4 +144,4 @@ require_once('connect.php');
 
 </body>
 
-</php>
+</html>

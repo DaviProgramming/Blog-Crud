@@ -4,7 +4,7 @@ require_once('connect.php');
 
 ?>
 <!DOCTYPE php>
-<php lang="pt-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -147,4 +147,4 @@ require_once('connect.php');
 
 </body>
 
-</php>
+</html>

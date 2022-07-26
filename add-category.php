@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE php>
-<php lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -34,8 +34,9 @@
         <p>Enviado com sucesso</p>
     </div>
     <?php 
-    }
     unset($_SESSION['Confirm_Send']);
+    }
+    
     ?>
 
     <form action="sendform.php" class="form__sing" method="POST">
@@ -133,4 +134,4 @@
 
 </body>
 
-</php>
+</html>

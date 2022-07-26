@@ -1,4 +1,4 @@
-<!DOCTYPE php>
+<!DOCTYPE html>
 
 <?php 
 require('connect.php');
@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
 
 ?>
 
-<php lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -204,7 +204,7 @@ if(isset($_GET['id'])){
 
 </body>
 
-</php>
+</html>
 
 <?php } else{
 
