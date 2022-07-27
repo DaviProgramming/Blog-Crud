@@ -17,12 +17,20 @@ if (isset($_POST['btn_signUp'])) {
     $SignUpPassword = $_POST['singup_password'];
     $SignUpConfirmPassword = $_POST['singup_ConfirmPassowrd'];
     $SignUpAd = $_POST['choice'];
+    
+    if(isset($_FILES['arquivo']['name'])){
+    print_r($_FILES['arquivo']['name']);
+    
+    }
+    
 
     $_SESSION['SFname'] = $SignUpFirstName;
     $_SESSION['SLname'] = $SignUpLastName;
     $_SESSION['SUname'] = $SignUpUsername;
     $_SESSION['SignUpPassword'] = $SignUpPassword;
     $_SESSION['SignUpConfirmPassword'] = $SignUpConfirmPassword;
+
+    
 
 
     //Validação Primeiro nome formulario
@@ -82,7 +90,6 @@ if (isset($_POST['btn_signUp'])) {
 
     if (strcmp($SignUpConfirmPassword, $SignUpPassword) == 0) {
         $Confirm_SignUpConfirmPassword = $SignUpConfirmPassword;
-        
     } else if (!strcmp($SignUpConfirmPassword, $SignUpPassword) == 0) {
         $_SESSION['Confirm_CPassword_erro'] = "*As Senhas não batem";
         echo strcmp($SignUpConfirmPassword, $SignUpPassword);
@@ -90,21 +97,36 @@ if (isset($_POST['btn_signUp'])) {
         exit;
     }
 
-    if($SignUpAd== 0){
-    $Confirm_SignUpAd = "Author";
-    }
-    else if($SignUpAd == 1){
-    $Confirm_SignUpAd = "Admin";
+    if ($SignUpAd == 0) {
+        $Confirm_SignUpAd = "Author";
+    } else if ($SignUpAd == 1) {
+        $Confirm_SignUpAd = "Admin";
     }
 
-    $sql = "INSERT INTO users(first_name,last_name,email,password,username,author)
-            VALUES ( '$Confirm_SFname' , '$Confirm_SLname','$SignUpEmail', '$Confirm_SignUpConfirmPassword', '$Confirm_SUname', '$Confirm_SignUpAd')";
+    $SignUpThumb = $_FILES['arquivo']['name'];
+    
+
+    
+    
+
+    $sql = "INSERT INTO users(first_name,last_name,email,password,username,author,avatar)
+    VALUES ( '$Confirm_SFname' , '$Confirm_SLname','$SignUpEmail', '$Confirm_SignUpConfirmPassword', '$Confirm_SUname', '$Confirm_SignUpAd', '$SignUpThumb')";
+
+    
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset($_SESSION['SFname'],$_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword'] );
+        $ultimo_id = mysqli_insert_id($conn);
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
+        if (!is_dir($_UP['pasta'])) {
+            mkdir($_UP['pasta'],0777);
+        }
+        $nome_final = $SignUpThumb;
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
+        unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword']);
         header("Location: signup.php");
         exit;
+        
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -127,7 +149,7 @@ if (isset($_POST['btn_signUp'])) {
 if (isset($_POST['btn_EditUser'])) {
 
     $id = $_GET['id'];
-    
+
     $EditFirstName = $_POST['EditFirstName'];
     $EditLastName = $_POST['EditLastName'];
     $EditUserName = $_POST['EditUserName'];
@@ -194,26 +216,24 @@ if (isset($_POST['btn_EditUser'])) {
 
     if (strcmp($EditPassword, $EditPassword) == 0) {
         $Confirm_SignUpConfirmPassword = $SignUpConfirmPassword;
-        
     } else if (!strcmp($SignUpConfirmPassword, $EditPassword) == 0) {
         $_SESSION['Confirm_CPassword_erro'] = "*As Senhas não batem";
-        
+
         header("Location: edit-user.php?id="  . $id);
         exit;
     }
 
-    if($EditAuthor== 0){
-    $Confirm_SignUpAd = "Author";
-    }
-    else if($EditAuthor == 1){
-    $Confirm_SignUpAd = "Admin";
+    if ($EditAuthor == 0) {
+        $Confirm_SignUpAd = "Author";
+    } else if ($EditAuthor == 1) {
+        $Confirm_SignUpAd = "Admin";
     }
 
     $sql = "UPDATE `users` SET `first_name` = '$Confirm_SFname', `last_name` = '$Confirm_SLname', `email` = '$EditEmail', `password` = '$Confirm_SignUpConfirmPassword', `author` = '$EditAuthor', `username` = '$Confirm_SUname'";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset($_SESSION['SFname'],$_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword'] );
+        unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword']);
         header("Location: edit-user.php?id="  . $id);
         exit;
     } else {
@@ -304,7 +324,6 @@ if (isset($_POST['btn_Add-user'])) {
 
     if (strcmp($SignUpConfirmPassword, $SignUpPassword) == 0) {
         $Confirm_SignUpConfirmPassword = $SignUpConfirmPassword;
-        
     } else if (!strcmp($SignUpConfirmPassword, $SignUpPassword) == 0) {
         $_SESSION['Confirm_CPassword_erro'] = "*As Senhas não batem";
         echo strcmp($SignUpConfirmPassword, $SignUpPassword);
@@ -312,11 +331,10 @@ if (isset($_POST['btn_Add-user'])) {
         exit;
     }
 
-    if($SignUpAd == 0){
-    $Confirm_SignUpAd = "Author";
-    }
-    else if($SignUpAd == 1){
-    $Confirm_SignUpAd = "Admin";
+    if ($SignUpAd == 0) {
+        $Confirm_SignUpAd = "Author";
+    } else if ($SignUpAd == 1) {
+        $Confirm_SignUpAd = "Admin";
     }
 
     $sql = "INSERT INTO users(first_name,last_name,email,password,username,author)
@@ -324,7 +342,7 @@ if (isset($_POST['btn_Add-user'])) {
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset($_SESSION['SFname'],$_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword'] );
+        unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword']);
         header("Location: add-user.php");
         exit;
     } else {
@@ -336,7 +354,7 @@ if (isset($_POST['btn_Add-user'])) {
 
 
 
-if(isset($_POST['btn_Add_Category'])){
+if (isset($_POST['btn_Add_Category'])) {
     $Category_name = $_POST['add_category_name'];
     $Description_Category = $_POST['category_description'];
 
@@ -372,13 +390,12 @@ if(isset($_POST['btn_Add_Category'])){
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset( $_SESSION['Category_name'],$_SESSION['Description_Category']);
+        unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
         header("Location: add-category.php");
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-
 }
 
 
@@ -388,7 +405,7 @@ if(isset($_POST['btn_Add_Category'])){
 
 
 
-if(isset($_POST['btn_update_category'])){
+if (isset($_POST['btn_update_category'])) {
     $id = $_POST['id_new'];
     $Category_name = $_POST['edit_category_name'];
     $Description_Category = $_POST['edit_category_description'];
@@ -401,9 +418,6 @@ if(isset($_POST['btn_update_category'])){
 
     if (strlen($Category_name) <= 2) {
         $_SESSION['Category_erro'] = "*Preencha o nome da Categoria com no mínimo 2 caracteres e sem espaços em Branco";
-       
-
-        
     } else if (!strlen($Category_name) <= 2) {
         $Confirm_Cname = $Category_name;
     }
@@ -412,8 +426,6 @@ if(isset($_POST['btn_update_category'])){
 
     if (strlen($Description_Category) <= 2) {
         $_SESSION['CategoryDescription_erro'] = "*Preencha a descrição com no mínimo 2 caracteres e sem espaços em Branco";
-        
-       
     } else if (!strlen($Description_Category) <= 2) {
         $Confirm_Description_Category = $Description_Category;
         $time = date('Y-m-d');
@@ -423,15 +435,12 @@ if(isset($_POST['btn_update_category'])){
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset( $_SESSION['Category_name'],$_SESSION['Description_Category']);
+        unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
         header("Location: manage-categorys.php");
         exit;
-        
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        
     }
-
 }
 
 
@@ -448,20 +457,20 @@ if(isset($_POST['btn_update_category'])){
 
 
 
-if(isset($_POST['btn_add_post'])){
-    $title= $_POST['name_post'];
+if (isset($_POST['btn_add_post'])) {
+    $title = $_POST['name_post'];
     $category = $_POST['Choice_category'];
     $body_text = $_POST['Body_text'];
     $featured = $_POST['featured'];
 
     echo $featured;
-    
+
     $_SESSION['title'] = $title;
     $_SESSION['category'] = $category;
     $_SESSION['Body_Text'] = $body_text;
-    
 
-    
+
+
     if (strlen($title) <= 2) {
         $_SESSION['title_erro'] = "*Preencha o nome da Categoria com no mínimo 2 caracteres e sem espaços em Branco";
 
@@ -487,24 +496,10 @@ if(isset($_POST['btn_add_post'])){
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset( $_SESSION['Category_name'],$_SESSION['Description_Category']);
+        unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
         header("Location: add-post.php");
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-
 }
-
-?>
-
-
-
-
-
-
-
-
-
-
-

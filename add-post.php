@@ -87,7 +87,7 @@ $result_category = $conn->query($sql);
 
                 <div class="form__control">
                     <label for="thumbnail"> Add Thumbnail</label>
-                    <input type="file" name="thumbail" id="thumbnail">
+                    <input type="file" name="thumbnail" id="thumbnail">
                 </div>
 
                 <button type="submit" class="btn" name="btn_add_post">Add Post</button>

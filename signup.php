@@ -52,7 +52,8 @@ require_once('connect.php');
     <section class="form__section">
         <div class="container form__section-container">
             <h2>Sign Up</h2>
-            <form action="sendform.php" class="form__sing" method="POST">
+            <form action="sendform.php" class="form__sing" method="POST" enctype="multipart/form-data" >
+            
                 <?php
                 if (isset($_SESSION['Fname_erro']) || isset($_SESSION['Lname_erro']) || isset($_SESSION['Uname_erro']) || isset($_SESSION['Password_erro']) || isset($_SESSION['Confirm_CPassword_erro'])) {
 
@@ -129,10 +130,10 @@ require_once('connect.php');
                                                                                                         }
                                                                                                         ?>">
                 <div class="form__control">
-                    <label for="avatar" class="avatar"></label>
-                    <input type="file" id="avatar">
+                   
+                <input type="file" name="arquivo" >
                 </div>
-                <input type="hidden" value="0" name="Choice">
+                <input type="hidden" value="0" name="choice">
                 <button type="submit" class="btn" name="btn_signUp" value="envio">Sign Up</button>
                 <small>Already Have an account? <a href="signin.php">Sign in</a></small>
 
