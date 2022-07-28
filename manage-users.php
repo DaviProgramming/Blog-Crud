@@ -6,7 +6,7 @@ $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 
 
-if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
+if(isset($_SESSION['Lvl_acess']) && $_SESSION['Lvl_acess'] === "Admin"){ 
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 
 require_once('connect.php');
-
+if(isset($_SESSION['Lvl_acess']) && $_SESSION['Lvl_acess'] === "Admin"){ 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,35 +19,7 @@ require_once('connect.php');
 
 <body>
 
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                
-                <?php if (
-                    $_SESSION['connect'] == 0
-                ) { ?>
-                    <li><a href="signin.php">Sign in</a></li>
-                <?php } else {
-                ?>
-                    <li class="nav__profile">
-                        <div class="avatar">
-                            <img src="./images/avatar1.jpg" alt="">
-                        </div>
-                        <ul>
-                            <li><a href="dashboard.php">Dashboard</a></li>
-                            <li><a href="logout.php">Logout</a></li>
-                        </ul>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
-
+    <?php require('navbar.php');?>
 
     <section class="form__section">
         <div class="container form__section-container">
@@ -152,3 +124,12 @@ require_once('connect.php');
 </body>
 
 </html>
+
+<?php }
+
+else{
+    header("Location: index.php");
+    exit;
+}
+
+?>
