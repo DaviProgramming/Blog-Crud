@@ -24,7 +24,7 @@
                 <input type="Email" name="contact_email" placeholder="Email">
             </div>
             <input type="text" placeholder="Title">
-
+           
             <textarea name="body_title" placeholder="Body" rows="10"></textarea>
             <button class="btn sm">Submit</button>
         </form>

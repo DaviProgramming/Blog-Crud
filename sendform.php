@@ -118,10 +118,8 @@ if (isset($_POST['btn_signUp'])) {
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
         $ultimo_id = mysqli_insert_id($conn);
-        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
-        if (!is_dir($_UP['pasta'])) {
-            mkdir($_UP['pasta'],0777);
-        }
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\Avatar_id_' .  $ultimo_id . '/';
+        mkdir($_UP['pasta'],0777);
         $nome_final = $SignUpThumb;
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
         unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword']);
@@ -241,10 +239,8 @@ if (isset($_POST['btn_EditUser'])) {
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Editado Com Sucesso";
         $ultimo_id = mysqli_insert_id($conn);
-        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
-        if (!is_dir($_UP['pasta'])) {
-            mkdir($_UP['pasta'],0777);
-        }
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\Avatar_id_' .  $ultimo_id . '/';
+        mkdir($_UP['pasta'],0777);
         $nome_final = $EditUpThumb;
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
         unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword'], $_SESSION['avatar']);
@@ -515,10 +511,8 @@ if (isset($_POST['btn_add_post'])) {
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
         $ultimo_id = $id;
-        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
-        if (!is_dir($_UP['pasta'])) {
-            mkdir($_UP['pasta'],0777);
-        }
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Post_images\Post_id_' .  $ultimo_id . '/';
+        mkdir($_UP['pasta'],0777);
         $nome_final = $thumb;
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
         unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
@@ -580,10 +574,9 @@ if (isset($_POST['btn_Edit_post'])) {
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
         $ultimo_id = $id;
-        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
-        if (!is_dir($_UP['pasta'])) {
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Post_images\Post_id_' .  $ultimo_id . '/';
+       
             mkdir($_UP['pasta'],0777);
-        }
         $nome_final = $thumb;
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
         unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
@@ -607,12 +600,18 @@ if(isset($_POST['btn_Signin'])){
     $sql = "SELECT * FROM users WHERE `username` = '$login' AND `password` = '$senha'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_num_rows($result);
+    $names = $result->fetch_assoc();
 
     if($row == 1){
         $_SESSION['usuario'] = $login;
         unset($_SESSION['disconnect']);
-        $_SESSION['connect'] = 1;
-        $_SESSION['Lvl_acess'] = $row['author'];
+        $_SESSION['connect'] = true;
+        $_SESSION['Lvl_acess'] = $names['author'];
+        $_SESSION['id_login'] = $names['id'];
+        $_SESSION['avatar'] = $names['avatar'];
+        echo $_SESSION['Lvl_acess'] ;
+        echo $names['avatar'];
+        echo $names['id'];
         header('Location: index.php');
         exit();
     }

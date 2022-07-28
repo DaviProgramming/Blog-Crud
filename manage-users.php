@@ -6,7 +6,7 @@ $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 
 
-
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 ?>
 
 <!DOCTYPE html>
@@ -117,3 +117,10 @@ $result = $conn->query($sql);
 </body>
 
 </html>
+
+<?php }
+else{
+    header("Location: index.php");
+    exit;
+}
+?>

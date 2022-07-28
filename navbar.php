@@ -7,6 +7,7 @@ include('connect.php');?>
             <ul class="nav__items">
                 
                 <li><a href="blog.php">Blog</a></li>
+              
                 <li><a href="about.php">About</a></li>
                 <li><a href="services.php">Services</a></li>
                 <li><a href="contact.php">Contato</a></li>
@@ -20,7 +21,8 @@ include('connect.php');?>
                 ?>
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
+                        <img src="./images/Perfil_images/Avatar_id_<?php echo $_SESSION['id_login']; ?>/<?php echo $_SESSION['avatar'];?>" alt="">
+                        
                     </div>
                     <ul>
                         <li><a href="dashboard.php">Dashboard</a></li>
