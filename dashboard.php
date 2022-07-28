@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 require_once('connect.php');
@@ -68,7 +68,7 @@ $result = $conn->query($sql);
                     </li>
 
                     <li>
-                        <a href="manage-categorys.php" ><i class="uil uil-list-ui-alt"></i>
+                        <a href="manage-categorys.php"><i class="uil uil-list-ui-alt"></i>
                             <h5>Manage Categories</h5>
                         </a>
                     </li>
@@ -78,6 +78,27 @@ $result = $conn->query($sql);
             <main>
                 <h2>Dashboard</h2>
                 <table>
+                    <?php
+                    if (isset($_SESSION['Confirm_Send'])) {
+                    ?>
+                        <div class="alert__message sucess">
+                            <p>Enviado com sucesso</p>
+                        </div>
+                        <?php unset($_SESSION['Confirm_Send']) ?>
+                    <?php
+                    }
+
+                    ?>
+
+                    <?php
+                    if (isset($_SESSION['body_text_erro']) || isset($_SESSION['title_erro'])) {
+                    ?>
+                        <div class="alert__message error">
+                            <p>Algo deu errado</p>
+                        </div>
+                    <?php
+                    }
+                    ?>
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -87,24 +108,25 @@ $result = $conn->query($sql);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php 
-                        if($result->num_rows >0){
-                            while($row = $result->fetch_assoc()){
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
                         ?>
-                        <tr>
-                            <td>
-                                <?php echo $row['title']; ?>
-                            </td>
-                            <td><?php echo $row['category']; ?></td>
-                            <td><a href="edit-post.php?id=<?php echo $row['id']; ?>" class="btn sm">Edit</a></td>
-                            <td><a href="delete-post.php?id=<?php echo $row['id']; ?>" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        
-                        
-                        
-                        <?php 
-                        
-                            } }?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['title']; ?>
+                                    </td>
+                                    <td><?php echo $row['category']; ?></td>
+                                    <td><a href="edit-post.php?id=<?php echo $row['id']; ?>" class="btn sm">Edit</a></td>
+                                    <td><a href="delete-post.php?id=<?php echo $row['id']; ?>" class="btn sm delete">Delete</a></td>
+                                </tr>
+
+
+
+                        <?php
+
+                            }
+                        } ?>
 
                     </tbody>
                 </table>
@@ -114,8 +136,7 @@ $result = $conn->query($sql);
 
     <footer>
         <div class="footer__socials">
-            <a href="https://www.instagram.com/asdavidoliveira/" target="_blank" rel="noopener noreferrer" class=""><i
-                    class="uil uil-instagram"></i></a>
+            <a href="https://www.instagram.com/asdavidoliveira/" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-instagram"></i></a>
             <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-github"></i></a>
             <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-linkedin"></i></a>
         </div>

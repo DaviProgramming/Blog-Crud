@@ -528,3 +528,68 @@ if (isset($_POST['btn_add_post'])) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
+
+
+
+//-------------------------------edit post -----------------------------------------------//
+
+
+if (isset($_POST['btn_Edit_post'])) {
+    $id = $_GET['id'];
+    $title = $_POST['name_post'];
+    $category = $_POST['Choice_category'];
+    $body_text = $_POST['Body_text'];
+    $featured = $_POST['featured'];
+    if(isset($_FILES['arquivo']['name'])){
+        $thumb = $_FILES['arquivo']['name'];
+        $_SESSION['avatar'] = $EditUpThumb;
+    }
+
+    echo $featured;
+
+    $_SESSION['title'] = $title;
+    $_SESSION['category'] = $category;
+    $_SESSION['Body_Text'] = $body_text;
+
+
+
+    if (strlen($title) <= 2) {
+        $_SESSION['title_erro'] = "*Preencha o nome da Categoria com no mínimo 2 caracteres e sem espaços em Branco";
+
+        header("Location: add-post.php");
+        exit;
+    } else if (!strlen($title) <= 2) {
+        $Confirm_title = $title;
+    }
+
+    //Verificação Description
+
+    if (strlen($body_text) <= 2) {
+        $_SESSION['body_text_erro'] = "*Preencha a descrição com no mínimo 2 caracteres e sem espaços em Branco";
+
+        header("Location: add-post.php");
+        exit;
+    } else if (!strlen($body_text) <= 2) {
+        $Confirm_body_text = $body_text;
+        $time = date('Y-m-d');
+    }
+
+    
+    $sql = "UPDATE `posts` SET `title` = '$Confirm_title', `category` = '$category', `textbody` = '$Confirm_body_text', `thumb` = '$thumb'";
+
+    if (mysqli_query($conn, $sql)) {
+        $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
+        $ultimo_id = $id;
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
+        if (!is_dir($_UP['pasta'])) {
+            mkdir($_UP['pasta'],0777);
+        }
+        $nome_final = $thumb;
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
+        unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}

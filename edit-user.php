@@ -3,6 +3,8 @@
 <?php 
 require('connect.php');
 
+
+
 if(isset($_GET['id'])){
 
 
@@ -33,7 +35,7 @@ if(isset($_GET['id'])){
                     $id = $_GET['id'];
                     $sql = "SELECT * FROM `users` WHERE `id` = '$id'";
 
-                    $result = $conn ->query($sql);
+                    $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
 
 

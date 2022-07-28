@@ -47,9 +47,10 @@ $result_category = $conn->query($sql);
                 <div class="alert__message sucess">
                     <p>Enviado com sucesso</p>
                 </div>
+                <?php unset($_SESSION['Confirm_Send']) ?>;
             <?php
             }
-            unset($_SESSION['Confirm_Send']);
+            
             ?>
 
             <?php if(isset($_SESSION['title_erro'])){
