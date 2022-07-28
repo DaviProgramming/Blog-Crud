@@ -31,6 +31,7 @@
         </div>
     </section>
 
+   
     <?php require('footer.php') ?>;
 
     <script src="./main.js"></script>

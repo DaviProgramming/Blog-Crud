@@ -46,7 +46,9 @@ body{
     line-height: 1.6;
     color: var(--color-white);
     overflow-x: hidden;
-    background: var(--color-bg);
+    background: url(/images/background.png);
+    background-size:cover;
+    background-repeat: no-repeat;
     font-size: 0.9rem;
 }
 

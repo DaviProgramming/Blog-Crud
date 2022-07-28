@@ -593,3 +593,38 @@ if (isset($_POST['btn_Edit_post'])) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
+
+
+//LOGIN -------------------------------------------------------
+
+if(isset($_POST['btn_Signin'])){
+
+    $login = $_POST['login'];
+    $senha = $_POST['password'];
+
+    echo $login;
+
+    $sql = "SELECT * FROM users WHERE `username` = '$login' AND `password` = '$senha'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($result);
+
+    if($row == 1){
+        $_SESSION['usuario'] = $login;
+        unset($_SESSION['disconnect']);
+        $_SESSION['connect'] = 1;
+        $_SESSION['Lvl_acess'] = $row['author'];
+        header('Location: index.php');
+        exit();
+    }
+    else{
+        $_SESSION['erro'] = "Usuario ou senha invalidos";
+        header('Location: signin.php');
+        exit();
+
+    }
+   
+
+
+
+
+}
