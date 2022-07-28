@@ -1,7 +1,7 @@
 <?php
 
 require('connect.php');
-session_start();
+
 
 $sql = "SELECT `name` FROM `category`";
 
@@ -57,7 +57,7 @@ $result_category = $conn->query($sql);
                 unset($_SESSION['title_erro']);
             } ?>
 
-            <form action="sendform.php" class="form__sing" method="POST">
+            <form action="sendform.php" class="form__sing" method="POST" enctype="multipart/form-data">
                 
                 <input type="text" placeholder="Title" name="name_post" id="" value="<?php if (isset($_SESSION['title'])) {
                                                                                             echo $_SESSION['title'];
@@ -87,7 +87,7 @@ $result_category = $conn->query($sql);
 
                 <div class="form__control">
                     <label for="thumbnail"> Add Thumbnail</label>
-                    <input type="file" name="thumbnail" id="thumbnail">
+                    <input type="file" name="arquivo">
                 </div>
 
                 <button type="submit" class="btn" name="btn_add_post">Add Post</button>

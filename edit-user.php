@@ -101,12 +101,14 @@ if(isset($_GET['id'])){
                     } ?></h5>
                 <input type="text" name="EditPassword" placeholder="Password" value="<?php echo $row['password'] ?>">
                 <select name="EditAuthor">
-                    <option value="0">Author</option>
-                    <option value="1">Admin</option>
+                    <option value="Author">Author</option>
+                    <option value="Admin">Admin</option>
                 </select>
                 <div class="form__control">
                     <label for="avatar">Edit Avatar</label>
-                    <input type="file" id="avatar">
+                    <input type="file" id="avatar" name="arquivo" value="<?php if(isset($row['avatar;'])){
+                        echo $row['avatar'];
+                    } ?>">
                 </div>
 
                 <button class="btn" name="btn_EditUser" value="Edit">Edit User</button>

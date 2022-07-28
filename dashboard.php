@@ -1,6 +1,13 @@
 <?php 
 
-session_start();
+
+require_once('connect.php');
+
+$sql = "SELECT * FROM posts";
+
+$result = $conn->query($sql);
+
+
 
 ?>
 
@@ -80,39 +87,24 @@ session_start();
                         </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                        if($result->num_rows >0){
+                            while($row = $result->fetch_assoc()){
+                        ?>
                         <tr>
                             <td>
-                                Travel
+                                <?php echo $row['title']; ?>
                             </td>
-                            <td>Art</td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
+                            <td><?php echo $row['category']; ?></td>
+                            <td><a href="edit-post.php?id=<?php echo $row['id']; ?>" class="btn sm">Edit</a></td>
+                            <td><a href="delete-post.php?id=<?php echo $row['id']; ?>" class="btn sm delete">Delete</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td>Art</td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td>Art</td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Travel
-                            </td>
-                            <td>Art</td>
-                            <td><a href="edit-category.php" class="btn sm">Edit</a></td>
-                            <td><a href="delete-category.php" class="btn sm delete">Delete</a></td>
-                        </tr>
-
+                        
+                        
+                        
+                        <?php 
+                        
+                            } }?>
 
                     </tbody>
                 </table>

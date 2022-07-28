@@ -19,8 +19,7 @@ if (isset($_POST['btn_signUp'])) {
     $SignUpAd = $_POST['choice'];
     
     if(isset($_FILES['arquivo']['name'])){
-    print_r($_FILES['arquivo']['name']);
-    
+        $SignUpThumb = $_FILES['arquivo']['name'];
     }
     
 
@@ -103,7 +102,9 @@ if (isset($_POST['btn_signUp'])) {
         $Confirm_SignUpAd = "Admin";
     }
 
-    $SignUpThumb = $_FILES['arquivo']['name'];
+    
+
+    
     
 
     
@@ -157,6 +158,11 @@ if (isset($_POST['btn_EditUser'])) {
     $EditPassword = $_POST['EditPassword'];
     $SignUpConfirmPassword = $_POST['singup_ConfirmPassowrd'];
     $EditAuthor = $_POST['EditAuthor'];
+
+    if(isset($_FILES['arquivo']['name'])){
+        $EditUpThumb = $_FILES['arquivo']['name'];
+        $_SESSION['avatar'] = $EditUpThumb;
+    }
 
 
     //Validação Primeiro nome formulario
@@ -229,12 +235,20 @@ if (isset($_POST['btn_EditUser'])) {
         $Confirm_SignUpAd = "Admin";
     }
 
-    $sql = "UPDATE `users` SET `first_name` = '$Confirm_SFname', `last_name` = '$Confirm_SLname', `email` = '$EditEmail', `password` = '$Confirm_SignUpConfirmPassword', `author` = '$EditAuthor', `username` = '$Confirm_SUname'";
+
+    $sql = "UPDATE `users` SET `first_name` = '$Confirm_SFname', `last_name` = '$Confirm_SLname', `email` = '$EditEmail', `password` = '$Confirm_SignUpConfirmPassword', `author` = '$EditAuthor', `username` = '$Confirm_SUname', `avatar` = '$EditUpThumb'";
 
     if (mysqli_query($conn, $sql)) {
-        $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
-        unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword']);
-        header("Location: edit-user.php?id="  . $id);
+        $_SESSION['Confirm_Send'] = "Editado Com Sucesso";
+        $ultimo_id = mysqli_insert_id($conn);
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
+        if (!is_dir($_UP['pasta'])) {
+            mkdir($_UP['pasta'],0777);
+        }
+        $nome_final = $EditUpThumb;
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
+        unset($_SESSION['SFname'], $_SESSION['SLname'], $_SESSION['SUname'], $_SESSION['SignUpPassword'], $_SESSION['SignUpConfirmPassword'], $_SESSION['avatar']);
+        header("Location: manage-users.php");
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -450,7 +464,7 @@ if (isset($_POST['btn_update_category'])) {
 
 
 
-
+//Add - post --------------------------------------------------------
 
 
 
@@ -462,6 +476,10 @@ if (isset($_POST['btn_add_post'])) {
     $category = $_POST['Choice_category'];
     $body_text = $_POST['Body_text'];
     $featured = $_POST['featured'];
+    if(isset($_FILES['arquivo']['name'])){
+        $thumb = $_FILES['arquivo']['name'];
+        $_SESSION['avatar'] = $EditUpThumb;
+    }
 
     echo $featured;
 
@@ -492,10 +510,17 @@ if (isset($_POST['btn_add_post'])) {
         $time = date('Y-m-d');
     }
 
-    $sql = "INSERT INTO posts(title,category,textbody) VALUES ('$Confirm_title', '$category',  ' $Confirm_body_text')";
+    $sql = "INSERT INTO posts(title,category,textbody,thumb) VALUES ('$Confirm_title', '$category',  ' $Confirm_body_text', '$thumb')";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['Confirm_Send'] = "Registrado Com Sucesso";
+        $ultimo_id = $id;
+        $_UP['pasta'] = 'D:\Projetos Programação\Back-end\PhP-Blog\images\Perfil_images\ ' .  $ultimo_id . '/';
+        if (!is_dir($_UP['pasta'])) {
+            mkdir($_UP['pasta'],0777);
+        }
+        $nome_final = $thumb;
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
         unset($_SESSION['Category_name'], $_SESSION['Description_Category']);
         header("Location: add-post.php");
         exit;
