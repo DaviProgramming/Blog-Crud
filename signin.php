@@ -14,11 +14,7 @@
 <body>
     
 
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            
-    </nav>
+    <?php require('navbar.php');?>
 
 <section class="form__section">
     <div class="container form__section-container">
@@ -37,6 +33,8 @@
 </div>
 
 </section>
+
+<?php require('footer.php');?>
 
 </body>
 

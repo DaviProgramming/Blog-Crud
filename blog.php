@@ -14,29 +14,7 @@
 
 <body>
 
-    <nav>
-        <div class="container nav__container">
-            <a href="index.php" class="nav__logo">ValoCRUD</a>
-            <ul class="nav__items">
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="services.php">Services</a></li>
-                <li><a href="contact.php">Contato</a></li>
-                <li><a href="signin.php">Sign in</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/avatar1.jpg" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="logout.php">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+<?php require('navbar.php'); ?>
 
     <section class="search__bar">
         <form action="" class="container search__bar-container">
@@ -176,80 +154,7 @@
         </div>
     </section>
 
-    <section class="category__buttons">
-        <div class="container category__buttons-container">
-            <a href="" class="category__button">Art</a>
-            <a href="" class="category__button">Wild Life</a>
-            <a href="" class="category__button">Travel</a>
-            <a href="" class="category__button">Sciene & Technology</a>
-            <a href="" class="category__button">Food</a>
-            <a href="" class="category__button">Music</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer__socials">
-            <a href="https://www.instagram.com/asdavidoliveira/" target="_blank" rel="noopener noreferrer"
-                class=""><i class="uil uil-instagram"></i></a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-github"></i></a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-linkedin"></i></a>
-        </div>
-        <div class="container footer__container">
-            <article>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Wild Life</a></li>
-                    <li><a href="">Travel</a></li>
-                    <li><a href="">Music</a></li>
-                    <li><a href="">Science & Technology</a></li>
-                    <li><a href="">Food</a></li>
-
-                </ul>
-            </article>
-
-            <article>
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="">Online Support</a></li>
-                    <li><a href="">Call Numbers</a></li>
-                    <li><a href="">Emails</a></li>
-                    <li><a href="">Social Suport</a></li>
-                    <li><a href="">Location</a></li>
-                   
-
-                </ul>
-            </article>
-
-            <article>
-                <h4>Blog</h4>
-                <ul>
-                    <li><a href="">Safety</a></li>
-                    <li><a href="">Repair</a></li>
-                    <li><a href="">Recent</a></li>
-                    <li><a href="">Popular</a></li>
-                    <li><a href="">Categories</a></li>
-                </ul>
-            </article>
-
-            <article>
-                <h4>PermaLink</h4>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </article>
-            
-        </div>
-        
-        
-        <div class="footer__copyright">
-            <small>COPYRIGHT BY DAVID OLIVEIRA@</small>
-        </div>
-    </footer>
+    <?php require('footer.php'); ?>
     
 <script src="./main.js"></script>
 </body>

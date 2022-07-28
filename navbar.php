@@ -1,3 +1,6 @@
+<?php  ;
+include('connect.php');?>
+
 <nav>
         <div class="container nav__container">
             <a href="index.php" class="nav__logo">ValoCRUD</a>
@@ -6,7 +9,7 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="services.php">Services</a></li>
                 <li><a href="contact.php">Contato</a></li>
-                <?php  if(isset($_SESSION['connect']) == 0
+                <?php  if(isset($_SESSION['connect']) == 1
                 ){?>
                 <li><a href="signin.php">Sign in</a></li>
                 <?php } 

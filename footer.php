@@ -3,7 +3,7 @@
 
 
 
-$sql = "SELECT `category` FROM `posts` LIMIT 5";
+$sql = "SELECT * FROM `category` LIMIT 5";
 
 $result_category = $conn->query($sql);
 
@@ -23,7 +23,7 @@ $result_category = $conn->query($sql);
                 <?php if ($result_category->num_rows > 0) {
                         while ($row = $result_category->fetch_assoc()) {
                     ?>
-                            <li><?php echo $row['category']; ?></li>
+                            <li><a href=""><?php echo $row['name']; ?></a></li>
                     <?php
                         }
                     } ?>
