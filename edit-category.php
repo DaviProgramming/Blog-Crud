@@ -94,5 +94,7 @@ session_start()
 
 <?php 
 }
+}else{
+    header("Location: index.php");
 }
 ?>

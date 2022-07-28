@@ -147,5 +147,7 @@ if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
     header("Location: index.php");
     exit;
 }
+}else{
+    header("Location: index.php");
 }
 ?>

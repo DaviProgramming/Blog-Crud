@@ -113,4 +113,6 @@ $result_category = $conn->query($sql_category);
 </html>
 
 <?php } 
+}else{
+    header("Location: index.php");
 }?>

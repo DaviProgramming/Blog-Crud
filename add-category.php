@@ -75,4 +75,7 @@ if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){ ?>
 
 </html>
 
-<?php }?>
+<?php }
+else{
+    header("Location: index.php");
+}?>
