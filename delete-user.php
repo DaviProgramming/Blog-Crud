@@ -1,6 +1,8 @@
 <?php
+require('connect.php');
+if(isset($_SESSION['Lvl_acess']) && $_SESSION['Lvl_acess'] === "Admin"){ 
+    
 
-include "connect.php";
 
 $id = $_GET['id'];
 
@@ -37,4 +39,7 @@ else{
     
 }
 
-
+}else{
+    header("Location: manage-users.php");
+    exit;
+}

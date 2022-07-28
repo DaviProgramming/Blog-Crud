@@ -19,11 +19,11 @@ require_once('connect.php');
 
 </head>
 
-<body>
+<body >
 
     <?php require('navbar.php');?>
 
-    <section class="featured">
+    <section class="featured" >
         <div class="container featured__container">
             <div class="post__thumbnail">
                 <img src="./images/blog1.jpg" alt="">
@@ -52,7 +52,7 @@ require_once('connect.php');
         
     </section>
 
-    <section class="posts">
+    <section class="posts index">
         <div class="container posts__container">
             <article class="post">
                 <div class="post__thumbnail">

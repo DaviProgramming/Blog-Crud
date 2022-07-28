@@ -2,7 +2,7 @@
 
 
 require_once('connect.php');
-
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 $sql = "SELECT * FROM posts";
 
 $result = $conn->query($sql);
@@ -147,3 +147,5 @@ if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
     header("Location: index.php");
     exit;
 }
+}
+?>

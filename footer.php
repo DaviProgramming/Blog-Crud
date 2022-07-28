@@ -12,8 +12,8 @@ $result_category = $conn->query($sql);
 <footer>
         <div class="footer__socials">
             <a href="https://www.instagram.com/asdavidoliveira/" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-instagram"></i></a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-github"></i></a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-linkedin"></i></a>
+            <a href="https://github.com/DaviProgramming" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-github"></i></a>
+            <a href="https://www.linkedin.com/in/david-oliveira-077a77212/" target="_blank" rel="noopener noreferrer" class=""><i class="uil uil-linkedin"></i></a>
         </div>
         <div class="container footer__container">
             <article>

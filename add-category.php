@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php require('connect.php');
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){ ?>
 <!DOCTYPE php>
 <html lang="en">
 
@@ -73,3 +74,5 @@
 </body>
 
 </html>
+
+<?php }?>

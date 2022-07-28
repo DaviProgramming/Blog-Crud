@@ -1,12 +1,7 @@
 <?php
 
-
-
-
-
-
-
 require_once('connect.php');
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 if (isset($_POST['btn_signUp'])) {
 
@@ -627,3 +622,5 @@ if(isset($_POST['btn_Signin'])){
 
 
 }
+}
+?>

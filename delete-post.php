@@ -3,6 +3,8 @@ require('connect.php');
 
 $id = $_GET['id'];
 
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
+
 if(isset($id)){
 
     $users_id = $_GET['id'];
@@ -34,6 +36,8 @@ else{
         exit;
     
     
+}
+
 }
 
 ?>

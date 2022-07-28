@@ -1,7 +1,7 @@
 <?php
 
 require('connect.php');
-
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 $sql = "SELECT `name` FROM `category`";
 
@@ -103,3 +103,6 @@ $result_category = $conn->query($sql);
 </body>
 
 </html>
+
+<?php }
+?>

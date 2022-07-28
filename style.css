@@ -52,6 +52,8 @@ body{
     font-size: 0.9rem;
 }
 
+
+
 .container{
     width: var(--container-width-lg);
     max-width: 1800px;
@@ -62,6 +64,8 @@ section{
     margin-top: 3rem;
     width: 100vw;
 }
+
+
 
 h1, h2, h3, h4,h5  {
     color: var(--color-white);
@@ -196,7 +200,7 @@ nav button{
 
 .post__thumbnail{
     border-radius: var(--card-border-radius-1) ;
-    border: 0.2rem solid var(--color-gray-900);
+    background: transparent;
     overflow: hidden;
     margin-bottom: 1.6rem;
     box-shadow: 0 0 1rem var(--color-gray-900);

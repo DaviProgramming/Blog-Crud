@@ -2,6 +2,8 @@
 
 include "connect.php";
 
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
+
 $id = $_GET['id'];
 
 if(isset($id)){
@@ -38,3 +40,6 @@ else{
 }
 
 
+}
+
+?>

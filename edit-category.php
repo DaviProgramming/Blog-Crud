@@ -1,5 +1,8 @@
 
-<?php if(isset($_GET['id'])){
+<?php 
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
+
+if(isset($_GET['id'])){
 
 session_start()
 
@@ -90,5 +93,6 @@ session_start()
 </html>
 
 <?php 
+}
 }
 ?>

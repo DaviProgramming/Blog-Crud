@@ -2,7 +2,7 @@
 
 require('connect.php');
 
-
+if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 
 if(isset($_GET['id'])){
@@ -112,4 +112,5 @@ $result_category = $conn->query($sql_category);
 
 </html>
 
-<?php } ?>
+<?php } 
+}?>
