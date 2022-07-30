@@ -20,7 +20,9 @@
         <h1>About page</h1>
     </section>
 
-    <?php require('footer.php') ?>;
+    <section>
+    <?php require('footer.php');?>
+    </section>
     
 <script src="./main.js"></script>
 </body>

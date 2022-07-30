@@ -14,8 +14,10 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$_SESSION['disconnect'] = 0;
 
-$_SESSION["connect"] = 0;
+
+
 
 
 

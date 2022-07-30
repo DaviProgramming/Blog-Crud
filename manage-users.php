@@ -23,7 +23,7 @@ if(isset($_SESSION['Lvl_acess']) && $_SESSION['Lvl_acess'] === "Admin"){
 
 </head>
 
-<body>
+<body class="manage-users">
 
     <?php require_once('navbar.php'); ?>
 

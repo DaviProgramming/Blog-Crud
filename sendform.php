@@ -598,9 +598,9 @@ if(isset($_POST['btn_Signin'])){
     $names = $result->fetch_assoc();
 
     if($row == 1){
-        $_SESSION['usuario'] = $login;
         unset($_SESSION['disconnect']);
-        $_SESSION['connect'] = true;
+        $_SESSION['usuario'] = $login;
+        $_SESSION['connect'] = 1;
         $_SESSION['Lvl_acess'] = $names['author'];
         $_SESSION['id_login'] = $names['id'];
         $_SESSION['avatar'] = $names['avatar'];

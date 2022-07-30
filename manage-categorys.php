@@ -23,7 +23,7 @@ if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 </head>
 
-<body>
+<body class="manage-categorys">
 
     <?php 
     require('navbar.php');

@@ -49,6 +49,10 @@
         <button type="submit" class="btn" name="btn_Signin">Sign in</button>
         <small>Don't Have an account? <a href="signup.php">Sign up</a></small>
     </form>
+    <ul>
+        <li class="btn goo"><a href="" ><i class="uil uil-google"></i>Login With Google</a></li>
+        <li class="btn face"><a href=""><i class="uil uil-facebook"></i>Login With Facebook</a></li>
+    </ul>
 </div>
 
 </section>

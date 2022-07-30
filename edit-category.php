@@ -1,10 +1,12 @@
 
 <?php 
+
+require('connect.php');
 if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 if(isset($_GET['id'])){
 
-session_start()
+
 
 ?>
 
@@ -24,7 +26,7 @@ session_start()
 <body>
     
     <?php require('navbar.php');
-            require('connect.php');
+            
 
 
     $id = $_GET['id'];
@@ -67,7 +69,7 @@ session_start()
             echo $_SESSION['CategoryDescription_erro'] ;
             unset($_SESSION['CategoryDescription_erro'] );
             }?>
-        <textarea name="edit_category_description"  rows="10" placeholder="Description"></textarea>
+        <textarea name="edit_category_description"  rows="10" placeholder="Description"><?php echo $row['description']; ?></textarea>
         <button type="submit" class="btn" name="btn_update_category">Edit Category</button>
         <small>Don't Have an account? <a href="signup.php">Sign up</a></small>
     </form>

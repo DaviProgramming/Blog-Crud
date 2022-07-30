@@ -179,8 +179,9 @@ require_once('connect.php');
             </article>
         </div>
     </section>
-
+    <section>
     <?php require('footer.php');?>
+    </section>
     
 <script src="./main.js"></script>
 </body>

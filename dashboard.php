@@ -25,7 +25,7 @@ if(isset($_SESSION['connect']) && isset($_SESSION['Lvl_acess'])){
 
 </head>
 
-<body>
+<body class="dashboards">
 
     <?php require_once('navbar.php'); ?>
 
